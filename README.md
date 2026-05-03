@@ -87,6 +87,86 @@ python server.py
 4. 点击 `AI ANALYZE`
 5. 查看双语简介与商业化建议
 
+## Use As An AI Skill | 作为 AI Skill 使用
+
+If you want to use the GitHub discovery logic inside an AI workflow instead of opening the local dashboard directly, this project can also be packaged and used as a reusable skill.
+
+如果你希望把这个能力作为 AI 工作流中的一个可复用模块，而不是只在本地网页中使用，那么它也可以被封装成一个 skill 来调用。
+
+### What the skill does | Skill 能做什么
+
+- fetch GitHub trending projects from multiple sources
+- merge and rank hot repositories
+- filter by language or domain
+- summarize what each project does
+- estimate commercialization potential
+
+- 从多个来源抓取 GitHub 热门项目
+- 合并并排序热门仓库
+- 按语言或领域筛选
+- 总结项目用途
+- 评估商业化潜力
+
+### Typical prompts | 常见触发方式
+
+Examples:
+
+```text
+Find today's hottest GitHub repos
+Show me trending AI open source projects this week
+每日 GitHub 热门项目推荐
+帮我找最近最火的 AI 开源项目
+```
+
+### How to install the skill | 如何安装 skill
+
+This repo includes the project implementation, while the reusable skill should live in your Claude skills directory.
+
+这个仓库保存的是项目实现；真正可复用的 skill 文件应当放在你的 Claude skills 目录里。
+
+Recommended location:
+
+```text
+~/.claude/skills/github-trending-scout/
+```
+
+Core files:
+
+- `SKILL.md` — skill metadata and workflow instructions
+- `scripts/fetch_trending.py` — fetches and merges trending GitHub repos
+
+### How the AI should use it | AI 应该如何调用
+
+The AI should:
+
+1. run the fetch script with the user's filters
+2. read the JSON output
+3. summarize each repo
+4. assess commercial potential
+5. present the result in the user's preferred language
+
+AI 的推荐调用步骤：
+
+1. 根据用户条件运行抓取脚本
+2. 读取 JSON 结果
+3. 总结每个项目的作用
+4. 评估商业化潜力
+5. 用用户偏好的语言输出结果
+
+### Example skill command | 示例 skill 调用
+
+```bash
+python scripts/fetch_trending.py --top 10 --since daily --language python
+```
+
+### Notes | 说明
+
+- The skill version is best for terminal / agent workflows.
+- The dashboard version in this repo is best for visual browsing and interactive filtering.
+
+- skill 版本更适合终端 / agent 工作流。
+- 本仓库里的 dashboard 版本更适合可视化浏览和交互式筛选。
+
 ## Architecture | 架构说明
 
 ```text
