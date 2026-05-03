@@ -49,7 +49,6 @@ It turns GitHub hot projects into a signal dashboard: what is trending, what the
 <img width="3828" height="1911" alt="image" src="https://github.com/user-attachments/assets/5b4e71f0-3139-40d1-aa9f-21cde0f54043" />
 <img width="3828" height="1911" alt="image" src="https://github.com/user-attachments/assets/7249a1fa-7200-49ec-a424-72de5f6e2b4a" />
 
-If you want, I can generate a polished screenshot section next with actual local screenshots once you provide or let me capture them.
 
 ## Demo | 演示
 
